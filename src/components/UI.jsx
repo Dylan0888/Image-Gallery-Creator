@@ -80,77 +80,83 @@ useEffect(() => {
 
   return (
       
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50">
-        <section className="min-w-[50%] max-w-[70%] bg-neutral-800 shadow-2xl p-4 rounded-xl relative">
-            <div className="flex flex-row  gap-2">
-                {/* Image */}
-                <div className="w-[50%] min-h-[200px] bg-gray-700 flex items-center justify-center rounded-lg">
-                    {newImage.imgLink ? (
-                    <img src={newImage.imgLink} alt="img" className="w-full h-full object-cover rounded-lg" />
-                    ) : (
-                    <span className="text-gray-400">No Image</span>
-                    )}
-                </div>
+ <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50">
+  <section className="w-[90%] md:min-w-[50%] md:max-w-[70%] bg-neutral-800 shadow-2xl p-4 rounded-xl relative">
+    {/* Responsive flex: column on small screens, row on md+ */}
+    <div className="flex flex-col md:flex-row gap-4">
+      
+      {/* Image */}
+      <div className="w-full md:w-1/2 min-h-[200px] bg-gray-700 flex items-center justify-center rounded-lg">
+        {newImage?.imgLink ? (
+          <img
+            src={newImage.imgLink}
+            alt="img"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        ) : (
+          <span className="text-gray-400">No Image</span>
+        )}
+      </div>
 
-                    {/* Form */}
-                <article className="w-[50%] flex flex-col gap-2 bg-amber-300">
-                    <UIInput
-                    htmlFor="date-input"
-                    inputName="date"
-                    labelText="Date:"
-                    value={newImage.date}
-                    handleChange={handleChange}
-                    type="text"
-                    />
+      {/* Form */}
+      <article className="w-full md:w-1/2 flex flex-col gap-3">
+        <UIInput
+          htmlFor="date-input"
+          inputName="date"
+          labelText="Date:"
+          value={newImage?.date || ""}
+          handleChange={handleChange}
+          type="text"
+        />
 
-                    <UIInput
-                    htmlFor="location-input"
-                    inputName="location"
-                    labelText="Location:"
-                    value={newImage.location}
-                    handleChange={handleChange}
-                    type="text"
-                    />
+        <UIInput
+          htmlFor="location-input"
+          inputName="location"
+          labelText="Location:"
+          value={newImage?.location || ""}
+          handleChange={handleChange}
+          type="text"
+        />
 
-                    <UIInput
-                    htmlFor="desc-input"
-                    inputName="desc"
-                    labelText="Description:"
-                    value={newImage.desc}
-                    handleChange={handleChange}
-                    type="area"
-                    />
+        <UIInput
+          htmlFor="desc-input"
+          inputName="desc"
+          labelText="Description:"
+          value={newImage?.desc || ""}
+          handleChange={handleChange}
+          type="area"
+        />
 
-                    {/* Buttons */}
-                    <div className="flex-1 flex justify-center items-center gap-5 mt-2">
-                    {data !== "string" && (
-                        <UIButton
-                        clickFunc={() => deleteImage()}
-                        text={<FontAwesomeIcon icon={faTrashCan} />}
-                        purpose="del"
-                        />
-                    )}
+        {/* Buttons */}
+        <div className="flex flex-wrap justify-center items-center gap-3 mt-2">
+          {typeof data === "object" && (
+            <UIButton
+              clickFunc={deleteImage}
+              text={<FontAwesomeIcon icon={faTrashCan} />}
+              purpose="del"
+            />
+          )}
 
-                    <UIButton clickFunc={clearForm} text="Clear" purpose="clear" />
+          <UIButton clickFunc={clearForm} text="Clear" purpose="clear" />
 
-                    <UIButton
-                        clickFunc={saveChanges}
-                        text={data === "string" ? "Save" : "Update"}
-                        purpose="saveUpdate"/>
-
-                    </div>
-                </article>
-            </div>
-
-            {/* Close Button */}
-            <div
-            onClick={() => closeWindow()}
-            className="absolute -top-4 -right-4 bg-red-500/70 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-red-600 text-white text-sm shadow-md"
-            >
-            <FontAwesomeIcon icon={faX} />
-            </div>
-        </section>
+          <UIButton
+            clickFunc={saveChanges}
+            text={typeof data === "string" ? "Save" : "Update"}
+            purpose="saveUpdate"
+          />
         </div>
+      </article>
+    </div>
+
+    {/* Close Button */}
+    <div
+      onClick={closeWindow}
+      className="absolute -top-4 -right-4 bg-red-500/60 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-red-500 text-white text-sm shadow-md"
+    >
+      <FontAwesomeIcon icon={faX} />
+    </div>
+  </section>
+</div>
 
         )
     }

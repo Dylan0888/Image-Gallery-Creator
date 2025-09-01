@@ -18,7 +18,12 @@ const Library = () => {
   
   return (
     <section className='m-2 p-2 shadow-xl rounded-xl'>
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid gap-5 grid-cols-1  /* default: 1 column on very small screens */
+                  sm:grid-cols-2    
+                  md:grid-cols-3    
+                  lg:grid-cols-4    
+                  xl:grid-cols-5   
+                  auto-rows-fr"'>
 
             {selectedLibrary.map((image) =>  
                 <figure className=' relative cursor-pointer rounded-lg overflow-hidden' 
