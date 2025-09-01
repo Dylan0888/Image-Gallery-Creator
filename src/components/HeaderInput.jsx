@@ -4,10 +4,8 @@ import UI from './UI';
 
 const HeaderInput = () => {
 
-  
-
   const [openUI, setOpenUI] = useState(false);
-  const [link, setLink] = useState("");
+  const [link, setLink] = useState(""); //Image link
 
 
   const handleChange = (e) => {
@@ -24,6 +22,7 @@ const HeaderInput = () => {
     });
   };
 
+  //Validates the image - if successful load ui 
   const handleAddClick = async () => {
   if (!link) {
     toast.error("Please enter an image URL!");
@@ -38,8 +37,6 @@ const HeaderInput = () => {
       toast.error("Invalid image URL!");
   }
 };
-
-       
 
    
   return (
@@ -65,21 +62,8 @@ const HeaderInput = () => {
         </div>
       </div>
 
-        {openUI && <UI data={link}/>}
+        {openUI && <UI data={link} setOpen={setOpenUI}/>}
 
-
-
-      {/* {openUI && (
-        <EditImage
-          {...addImage}
-          setMethod={setAddImage}
-          setOpen={setOpenUI}
-          setLibrary={setLibrary}
-          selectedLibrary={selectedLibrary}
-          mode="add"
-  
-        />
-      )} */}
     </>
   );
 };

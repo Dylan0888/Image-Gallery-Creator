@@ -3,13 +3,17 @@ import {LibContext} from '../context/libraryContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import toast from 'react-hot-toast'
+import UIButton from './UIButton'
+import UIInput from './UIInput'
 
-const UI = ({ data, SetOpen }) => {
+const UI = ({ data, setOpen }) => {
   //Data - either obj or string 
   //setOpen - resp for closing ui 
 
   const {selectedLibrary, setSelected} = useContext(LibContext)
-  const [newImage, setNew] = useState() //creates a new obj to be saved back to library
+  const [newImage, setNew] = useState(
+    {id: "", imgLink: "", date:"", location:"", desc: ""}
+  ) //creates a new obj to be saved back to library
 
 useEffect(() => {
   if (!data) return; 
@@ -23,7 +27,13 @@ useEffect(() => {
           location: "",
           desc: "",
         }
-      : { ...data };
+      : {
+        id: data.id,
+        imgLink: data.imgLink,
+        date: data.date,
+        location: data.location,
+        desc: data.desc
+      };
 
   setNew(imageObj);
 }, [data]);
@@ -36,7 +46,7 @@ useEffect(() => {
   };
 
   const closeWindow = () =>{
-    SetOpen(false)
+    setOpen(prev => !prev)
   }
 
   const clearForm = ()=>{
@@ -57,6 +67,7 @@ useEffect(() => {
         newImage // adds back the new object 
       ]) 
       toast.success("Image saved!");
+      closeWindow()
     }else{
       toast.error("Please Fill in all fields!")
     }
@@ -64,6 +75,7 @@ useEffect(() => {
 
   const deleteImage = () => {
     setSelected( selectedLibrary.filter(img => img.id !== newImage.id)) 
+    closeWindow()
   }
 
   return (
@@ -82,7 +94,7 @@ useEffect(() => {
 
                     {/* Form */}
                 <article className="w-[50%] flex flex-col gap-2 bg-amber-300">
-                    <ImageInput
+                    <UIInput
                     htmlFor="date-input"
                     inputName="date"
                     labelText="Date:"
@@ -91,7 +103,7 @@ useEffect(() => {
                     type="text"
                     />
 
-                    <ImageInput
+                    <UIInput
                     htmlFor="location-input"
                     inputName="location"
                     labelText="Location:"
@@ -100,7 +112,7 @@ useEffect(() => {
                     type="text"
                     />
 
-                    <ImageInput
+                    <UIInput
                     htmlFor="desc-input"
                     inputName="desc"
                     labelText="Description:"
@@ -111,17 +123,17 @@ useEffect(() => {
 
                     {/* Buttons */}
                     <div className="flex-1 flex justify-center items-center gap-5 mt-2">
-                    {data === "object" && (
-                        <ImageButton
+                    {data !== "string" && (
+                        <UIButton
                         clickFunc={() => deleteImage()}
                         text={<FontAwesomeIcon icon={faTrashCan} />}
                         purpose="del"
                         />
                     )}
 
-                    <ImageButton clickFunc={clearForm} text="Clear" purpose="clear" />
+                    <UIButton clickFunc={clearForm} text="Clear" purpose="clear" />
 
-                    <ImageButton
+                    <UIButton
                         clickFunc={saveChanges}
                         text={data === "string" ? "Save" : "Update"}
                         purpose="saveUpdate"/>

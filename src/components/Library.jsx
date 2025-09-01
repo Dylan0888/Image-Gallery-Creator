@@ -2,22 +2,18 @@ import React, {useState, useEffect, useContext} from 'react'
 import UI from './UI';
 import {LibContext} from '../context/libraryContext'
 
-
-// import EditImage from './EditImage'
-
 const Library = () => {
   
   const {selectedLibrary} = useContext(LibContext)
 
-  
   const [selectedImage, setSelectedImage] = useState();
   const [openUI, setOpenUI] = useState(false);
   
+  //Opens the ui when an image is clicked 
   useEffect(()=> {
     setOpenUI(
       selectedImage ? true : false
     )
-   
   },[selectedImage])
   
   return (
@@ -37,11 +33,7 @@ const Library = () => {
             )}
 
 
-            {openUI && <UI data={selectedImage}/>}
-
-            
-
-            {/* {openPopup && <EditImage {...selectedImage} setMethod={setSelectedImage} setOpen={setOpenPopup} mode={"edit"} setLibrary={setLibrary} selectedLibrary={selectedLibrary}/>} */}
+            {openUI && <UI data={selectedImage} setOpen={setOpenUI}/>}
 
         </div>
     </section>
