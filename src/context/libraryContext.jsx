@@ -12,22 +12,22 @@ export const LibProvider = ({children}) => {
     {
       id: crypto.randomUUID(),
       imgLink: img1,
-      date: "23/23/23",
-      location: "Everywhere",
+      date: "23/23/2023",
+      location: "Wales",
       desc: "Sample description for image 1",
     },
     {
       id: crypto.randomUUID(),
       imgLink: img3,
-      date: "23/23/23",
-      location: "Everywhere",
+      date: "23/23/1990",
+      location: "Birkenhead",
       desc: "Sample description for image 3",
     },
     {
       id: crypto.randomUUID(),
       imgLink: img2,
-      date: "23/23/23",
-      location: "Everywhere",
+      date: "23/23/2005",
+      location: "New Brighton",
       desc: "Sample description for image 2",
     },
   ]);
