@@ -8,6 +8,12 @@ const Library = () => {
 
   const [selectedImage, setSelectedImage] = useState();
   const [openUI, setOpenUI] = useState(false);
+
+  //Update local storage every time selected library changes 
+  useEffect(() => {
+    localStorage.setItem("image", JSON.stringify(selectedLibrary))
+  },[selectedLibrary])
+
   
   //Opens the ui when an image is clicked 
   useEffect(()=> {
@@ -31,7 +37,7 @@ const Library = () => {
                   onClick={() => (setSelectedImage(image))}
                 >
                     <img src={image.imgLink} alt="Copied Image" className='w-[100%] h-[100%]'/>
-                    <figcaption className='absolute w-full h-[12%] flex items-center justify-center bottom-0  backdrop-blur-xs p-4 font-bold'> 
+                    <figcaption className='absolute w-full h-[13%] flex items-center justify-center bottom-0  backdrop-blur-xs p-4 font-bold text-sm lg:text-lg  md:text-sm'> 
                       {image.date} - {image.location}
                     </figcaption>
                 </figure>
