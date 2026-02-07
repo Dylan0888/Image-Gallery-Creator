@@ -1,12 +1,51 @@
-# React + Vite
+# Image Gallery Creator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully interactive gallery creation web application built using React. Allows users to upload, edit and manage image collections with persistent storage utilising LocalStorage. The application demonstrates a component-based responsive UI architecture, global state management using the Context API and dynamic form-driven editing features. 
 
-Currently, two official plugins are available:
+## Features 
+- Interactive image gallery interface
+- Global state management using React Context API
+- Persistent data storage with LocalStorage
+- Add, edit, and manage image metadata:
+- - Date
+- - Location
+- - Description
+- Dynamic overlay editor for image updates
+- Reusable UI components for scalability
+- Responsive layout for modern browsers
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack 
+- React
+- Vite
+- JavaScript (ES6+)
+- Tailwind CSS
+- HTML
+- Context API
+- LocalStorage
 
-## Expanding the ESLint configuration
+## Installation and Setup 
+Clone the repository:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+git clone https://github.com/Dylan0888/Image-Gallery-Creator.git
+cd Image-Gallery-Creator
+
+Install dependencies:
+
+npm install
+
+Run the development server:
+
+npm run dev
+
+Build for production:
+
+npm run build
+
+## Learning Objects 
+This project demonstrates:
+
+- Building scalable React component architecture
+- Implementing global state management
+- Persisting client-side data with LocalStorage
+- Creating reusable UI components and interactive overlays
+- Managing form-driven updates for application data
