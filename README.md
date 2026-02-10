@@ -23,24 +23,6 @@ A fully interactive gallery creation web application built using React. Allows u
 - Context API
 - LocalStorage
 
-## Installation and Setup 
-Clone the repository:
-
-git clone https://github.com/Dylan0888/Image-Gallery-Creator.git
-cd Image-Gallery-Creator
-
-Install dependencies:
-
-npm install
-
-Run the development server:
-
-npm run dev
-
-Build for production:
-
-npm run build
-
 ## Learning Objects 
 This project demonstrates:
 
