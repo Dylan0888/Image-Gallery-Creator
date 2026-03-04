@@ -31,3 +31,41 @@ This project demonstrates:
 - Persisting client-side data with LocalStorage
 - Creating reusable UI components and interactive overlays
 - Managing form-driven updates for application data
+
+## Project Structure 
+```
+Image Gallery Creator/
+├── public/
+├── src/
+│    ├── assets/
+│    │        └── test-images/ (can be deleted)
+│    │                 ├── img1-min.jpg
+│    │                 ├── img2.jpg
+│    │                 └── img3.jpg
+│    │            
+│    ├── components/
+│    │          ├── HeaderInput.jsx
+│    │          ├── Library.jsx
+│    │          ├── UI.jsx
+│    │          ├── UIButton.jsx
+│    │          └── UIInput.jsx
+│    │
+│    ├── context/
+│    │         └── libraryContext.jsx 
+│    │
+│    ├── App.css
+│     ├── App.jsx
+│     ├── index.css
+│     └── main.jsx
+│
+├── .gitignore
+├── LICENSE
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+└── vite.config.js
+```
+## Liscense 
+MIT License - Copyright (c) 2026 Dylan Jones
