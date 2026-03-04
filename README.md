@@ -3,7 +3,7 @@
 A fully interactive gallery creation web application built using React. Allows users to upload, edit and manage image collections with persistent storage utilising LocalStorage. The application demonstrates a component-based responsive UI architecture, global state management using the Context API and dynamic form-driven editing features. 
 
 ## Live Preview 
-![App Preview]()
+![App Preview](src/assets/test-images/ImgGalCreatorGithubImage.png)
 Click Here to view [Live Preview](https://image-gallery-creator.vercel.app/)
 
 ## Features 
