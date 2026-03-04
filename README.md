@@ -4,7 +4,7 @@ A fully interactive gallery creation web application built using React. Allows u
 
 ## Live Preview 
 ![App Preview]()
-[Click Here to view Live Preview](https://image-gallery-creator.vercel.app/)
+Click Here to view [Live Preview](https://image-gallery-creator.vercel.app/)
 
 ## Features 
 - Interactive image gallery interface
