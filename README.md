@@ -1,6 +1,6 @@
 # Image Gallery Creator
 
-A fully interactive gallery creation web application built using React. Allows users to upload, edit and manage image collections with persistent storage utilising LocalStorage. The application demonstrates a component-based responsive UI architecture, global state management using the Context API and dynamic form-driven editing features. 
+A fully interactive gallery creation web application using React, featuring global state management with the Context API and persistent data storage via LocalStorage. Built reusable UI components, a dynamic overlay editor, and form-driven image metadata update capabilities (date, location, description).
 
 ## Live Preview 
 ![App Preview](src/assets/test-images/ImgGalCreatorGithubImage.png)
